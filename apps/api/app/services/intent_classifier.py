@@ -91,8 +91,17 @@ class IntentClassifierService:
         )
 
         raw = response.choices[0].message.content or "{}"
+        clean_raw = raw.strip()
+        if clean_raw.startswith("```json"):
+            clean_raw = clean_raw[7:]
+        elif clean_raw.startswith("```"):
+            clean_raw = clean_raw[3:]
+        if clean_raw.endswith("```"):
+            clean_raw = clean_raw[:-3]
+        clean_raw = clean_raw.strip()
+        
         try:
-            data = json.loads(raw)
+            data = json.loads(clean_raw)
         except json.JSONDecodeError:
             return self._rule_based_classify(query)
 
