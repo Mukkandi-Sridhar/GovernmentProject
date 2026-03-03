@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SchemeStructuredData",
+  "type": "object",
+  "properties": {
+    "scheme_name": { "type": ["string", "null"] },
+    "department": { "type": ["string", "null"] },
+    "year": { "type": ["string", "null"] },
+    "eligible_castes": { "type": ["array", "null"], "items": { "type": "string" } },
+    "income_limit": { "type": ["string", "null"] },
+    "education_levels": { "type": ["array", "null"], "items": { "type": "string" } },
+    "special_conditions": { "type": ["array", "null"], "items": { "type": "string" } },
+    "required_documents": { "type": ["array", "null"], "items": { "type": "string" } },
+    "application_deadline": { "type": ["string", "null"] },
+    "application_mode": { "type": ["string", "null"] },
+    "official_source_url": { "type": ["string", "null"], "format": "uri" }
+  },
+  "required": [
+    "scheme_name",
+    "department",
+    "year",
+    "eligible_castes",
+    "income_limit",
+    "education_levels",
+    "special_conditions",
+    "required_documents",
+    "application_deadline",
+    "application_mode",
+    "official_source_url"
+  ],
+  "additionalProperties": false
+}
+

@@ -1,0 +1,21 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ap-civic-api
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/PROJECT_ID/ap-civic-api:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: USE_INMEMORY_DB
+              value: "false"
+            - name: DISABLE_AUTH
+              value: "false"
+            - name: OPENAI_CHAT_MODEL
+              value: "gpt-4o-mini"
+            - name: OPENAI_EMBEDDING_MODEL
+              value: "text-embedding-3-small"
+

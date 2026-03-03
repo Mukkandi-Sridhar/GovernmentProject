@@ -1,0 +1,33 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "jsx": "preserve",
+    "incremental": true,
+    "noEmit": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@ap-civic/contracts": [
+        "../../packages/contracts/src/index.ts"
+      ]
+    },
+    "allowJs": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

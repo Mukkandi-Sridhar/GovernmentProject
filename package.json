@@ -1,0 +1,17 @@
+{
+  "name": "ap-civic-ai-platform",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace @ap-civic/web",
+    "dev:api": "cd apps/api && uvicorn app.main:app --reload --port 8000",
+    "build:web": "npm run build --workspace @ap-civic/web",
+    "test:web": "npm run test --workspace @ap-civic/web",
+    "lint:web": "npm run lint --workspace @ap-civic/web"
+  }
+}
+

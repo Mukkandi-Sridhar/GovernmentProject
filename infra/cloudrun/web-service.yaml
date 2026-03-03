@@ -1,0 +1,15 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ap-civic-web
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/PROJECT_ID/ap-civic-web:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_BASE_URL
+              value: https://ap-civic-api-URL/api/v1
+
